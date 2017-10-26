@@ -1,5 +1,6 @@
 import React from 'react';
 import {compose, withState} from 'recompose';
+import Countdown from 'react-countdown-now';
 
 import logo from './logo.svg';
 import './App.css';
@@ -9,7 +10,9 @@ const App = ({
   time,
   updateTime,
   date,
-  updateDate
+  updateDate,
+  going,
+  go
 }) => {
   return (
     <div className="App">
@@ -38,6 +41,19 @@ const App = ({
       <p>
         {time} + {date}
       </p>
+      <p>
+        {
+          !going
+          ? <button
+            onClick={() => go(true)}
+            disabled={!Date.parse(time + " " + date)}
+            >
+              Spooky Countdown
+            </button>
+          : <Countdown date={Date.parse(time + " " + date)} />
+        }
+
+      </p>
     </div>
   );
 }
@@ -45,4 +61,5 @@ const App = ({
 export default compose (
   withState('time', 'updateTime', ""),
   withState('date', 'updateDate', ""),
+  withState('going', 'go', false)
 )(App);
