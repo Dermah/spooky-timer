@@ -34,10 +34,36 @@ const styles = {
   }
 }
 
+const renderer = ({
+  total,
+  days,
+  hours,
+  minutes,
+  seconds,
+  milliseconds,
+  completed
+}) => {
+  return (
+    <p>
+      {
+        [
+          <span key="days">{`${days} days, `}</span>,
+          <span key="hours">{`${hours} hours, `}</span>,
+          <span key="minutes">{`${minutes} minutes, `}</span>,
+          <span key="seconds">{`${seconds} seconds`}</span>
+        ]
+      }
+    </p>
+  )
+}
+
 const count = ({classes, location}) => (
   <div className={classes.countdown}>
     {/* <h1>Spooky Timer</h1> */}
-    <Countdown date={parseInt(location.search.slice(6), 10)} />
+    <Countdown
+      date={parseInt(location.search.slice(6), 10)}
+      renderer={renderer}
+    />
   </div>
 )
 
