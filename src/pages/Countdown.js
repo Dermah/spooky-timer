@@ -36,7 +36,7 @@ const styles = {
 
 const count = ({classes, location}) => (
   <div className={classes.countdown}>
-    <h1>Spooky Timer</h1>
+    {/* <h1>Spooky Timer</h1> */}
     <Countdown date={parseInt(location.search.slice(6), 10)} />
   </div>
 )
