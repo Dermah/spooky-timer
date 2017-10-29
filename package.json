@@ -11,6 +11,7 @@
     "react-scripts": "1.0.14",
     "recompose": "^0.26.0"
   },
+  "homepage": "https://dermah.org/spooky-timer",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
