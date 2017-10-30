@@ -1,0 +1,8 @@
+{
+  "en": {
+    "app.daysLeft": "{days, number} {days, plural, =0 {days} one {day} other {days}}",
+    "app.hoursLeft": "{hours, number} {hours, plural, =0 {hours} one {hour} other {hours}}",
+    "app.minutesLeft": "{minutes, number} {minutes, plural, =0 {minutes} one {minute} other {minutes}}",
+    "app.secondsLeft": "{seconds, number} {seconds, plural, =0 {seconds} one {second} other {seconds}}"
+  }
+}
