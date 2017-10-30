@@ -3,6 +3,7 @@ import Countdown from 'react-countdown-now';
 import {compose} from 'recompose';
 import {withRouter} from 'react-router-dom';
 import injectSheet from 'react-jss';
+import {FormattedMessage} from 'react-intl';
 
 const styles = {
   '@keyframes enter': {
@@ -45,14 +46,50 @@ const renderer = ({
 }) => {
   return (
     <p>
-      {
-        [
-          <span key="days">{`${days} days, `}</span>,
-          <span key="hours">{`${hours} hours, `}</span>,
-          <span key="minutes">{`${minutes} minutes, `}</span>,
-          <span key="seconds">{`${seconds} seconds`}</span>
-        ]
-      }
+      <FormattedMessage
+        key="days"
+        id="app.daysLeft"
+        description="The word for days"
+        defaultMessage="{days, number} {days, plural,
+          =0 {days}
+          one {day}
+          other {days}
+        }"
+        values={{days}}
+      />
+      , <FormattedMessage
+        key="hours"
+        id="app.hoursLeft"
+        description="The word for hours"
+        defaultMessage="{hours, number} {hours, plural,
+          =0 {hours}
+          one {hour}
+          other {hours}
+        }"
+        values={{hours}}
+      />
+      , <FormattedMessage
+        key="minutes"
+        id="app.minutesLeft"
+        description="The word for minutes"
+        defaultMessage="{minutes, number} {minutes, plural,
+          =0 {minutes}
+          one {minute}
+          other {minutes}
+        }"
+        values={{minutes}}
+      />
+      , <FormattedMessage
+        key="seconds"
+        id="app.secondsLeft"
+        description="The word for seconds"
+        defaultMessage="{seconds, number} {seconds, plural,
+          =0 {seconds}
+          one {second}
+          other {seconds}
+        }"
+        values={{seconds}}
+      />
     </p>
   )
 }
