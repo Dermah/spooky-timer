@@ -2,12 +2,17 @@ import React from 'react';
 import {compose, branch, renderComponent} from 'recompose';
 import {BrowserRouter, withRouter} from 'react-router-dom';
 
-import {IntlProvider} from 'react-intl';
+import {IntlProvider, addLocaleData} from 'react-intl';
 
 import Prepare from './pages/Prepare';
 import Countdown from './pages/Countdown';
 
 import './App.css';
+
+import messages from './i18n/messages.json';
+
+import en from 'react-intl/locale-data/en';
+addLocaleData([...en]);
 
 
 const Screen = compose(
@@ -20,11 +25,17 @@ const Screen = compose(
 )();
 
 const navigator = window.navigator;
-let language = (navigator && navigator.language) || 'en';
+let language =
+  (navigator && navigator.languages && navigator.languages[0]) ||
+  (navigator && navigator.language) ||
+  'en';
+language = language.split("-")[0];
 
 const App = () => (
   <IntlProvider
     locale={language}
+    defaultLocale='en'
+    messages={messages[language]}
   >
     <BrowserRouter>
       <Screen />
