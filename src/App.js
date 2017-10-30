@@ -12,8 +12,8 @@ import './App.css';
 import messages from './i18n/messages.json';
 
 import en from 'react-intl/locale-data/en';
-addLocaleData([...en]);
-
+import pt from 'react-intl/locale-data/pt';
+addLocaleData([...en, ...pt]);
 
 const Screen = compose(
   withRouter,
